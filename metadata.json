@@ -1,0 +1,8 @@
+{
+  "name": "Secure Auth & User Portal",
+  "description": "Secure Firebase Authentication portal featuring user registration, login, email verification workflows, profile management, and account security controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

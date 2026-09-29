@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with identity, account metadata, and preferences",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Unique user ID matching Firebase Auth UID",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User's display name",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address",
+          "maxLength": 200
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Avatar image URL or icon key",
+          "maxLength": 500
+        },
+        "organization": {
+          "type": "string",
+          "description": "Farm or agricultural organization name",
+          "maxLength": 120
+        },
+        "role": {
+          "type": "string",
+          "description": "Role in the organization",
+          "enum": ["manager", "farmer", "agronomist", "technician", "viewer"]
+        },
+        "bio": {
+          "type": "string",
+          "description": "Short bio or notes",
+          "maxLength": 500
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Contact phone number",
+          "maxLength": 30
+        },
+        "emailVerified": {
+          "type": "boolean",
+          "description": "Sync of email verification status"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account record creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last profile update"
+        }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "User profile documents stored by user UID"
+    }
+  }
+}
